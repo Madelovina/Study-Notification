@@ -1,8 +1,6 @@
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.AudioClip;
 
 import java.awt.*;
-import java.io.File;
 
 public class Notification {
 
@@ -58,14 +56,9 @@ public class Notification {
     }
 
     private void playSound() {
-        try {
-            File file = new File("assets\\notification1.mp3");
-            Media hit = new Media(file.toURI().toURL().toExternalForm()
-            );
-            MediaPlayer mediaPlayer = new MediaPlayer(hit);
-            mediaPlayer.play();
-        } catch (Exception ex) {
-            System.out.println(ex);
-        }
+        AudioClip notification =
+                new AudioClip(this.getClass().getResource("resources/notification" + ((int) (Math.random() * 2) + 1) +
+                        ".mp3").toString());
+        notification.play();
     }
 }
