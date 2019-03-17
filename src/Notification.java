@@ -57,7 +57,7 @@ public class Notification {
 
     private void playSound() {
         AudioClip notification =
-                new AudioClip(this.getClass().getResource("resources/notification" + ((int) (Math.random() * 2) + 1) +
+                new AudioClip(this.getClass().getResource("resources/notification" + ((int) (Math.random() * 4) + 1) +
                         ".mp3").toString());
         notification.play();
     }
