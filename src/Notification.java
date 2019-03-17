@@ -1,8 +1,12 @@
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+
 import java.awt.*;
+import java.io.File;
 
 public class Notification {
 
-    private final Image image = Toolkit.getDefaultToolkit().getImage("quizlet.png");
+    private final Image image = Toolkit.getDefaultToolkit().getImage("assets\\quizlet.png");
     private SystemTray tray;
     private TrayIcon trayIcon;
     private QuizletGrabber quizlet;
@@ -39,6 +43,7 @@ public class Notification {
         } else
             for (int i = 0; i < numNoti; i++) {
                 Term ph = quizlet.returnRandom();
+                playSound();
                 displayFactTray(ph.getTerm(), ph.getDef());
                 try {
                     Thread.sleep((int) (60 * 1000 * Math.random()));
@@ -50,5 +55,17 @@ public class Notification {
 
     public void setQuizlet(QuizletGrabber quizlet) {
         this.quizlet = quizlet;
+    }
+
+    private void playSound() {
+        try {
+            File file = new File("assets\\notification1.mp3");
+            Media hit = new Media(file.toURI().toURL().toExternalForm()
+            );
+            MediaPlayer mediaPlayer = new MediaPlayer(hit);
+            mediaPlayer.play();
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
     }
 }
