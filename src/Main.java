@@ -44,7 +44,7 @@ public class Main extends Application {
             Platform.setImplicitExit(false);
             window.hide();
             noti = new Notification(quizletURL);
-            noti.displayFactTray("'ello!");
+            QuizletGrabber quizlet = new QuizletGrabber(quizletURL);
         });
 
         pane.getChildren().addAll(c);
