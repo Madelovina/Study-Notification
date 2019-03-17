@@ -9,10 +9,12 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+// https://stackoverflow.com/questions/21753252/why-trayicon-doesnt-appear
 
 public class Main extends Application {
 
     static String quizletURL;
+    static Notification noti;
 
     public static void main(String[] args) {
         launch(args);
@@ -23,26 +25,29 @@ public class Main extends Application {
         final Stage window = primary;
         window.initStyle(StageStyle.TRANSPARENT);
         window.setTitle("Study Notification");
-        window.setWidth(228);
-        window.setHeight(25);
+        window.setWidth(248);
+        window.setHeight(45);
         final Pane pane = new Pane();
         Scene scene = new Scene(pane);
-        pane.setPadding(new Insets(25, 25, 25, 25));
+        HBox c = new HBox();
+        c.setPadding(new Insets(10, 10, 10, 10));
 
         HBox hb = new HBox();
         hb.setSpacing(25);
         TextField urlField = new TextField("URL of Quizlet");
         Button submit = new Button("Submit");
         hb.getChildren().addAll(urlField, submit);
+        c.getChildren().addAll(hb);
 
         submit.setOnAction(actionEvent -> {
             quizletURL = urlField.getText();
             Platform.setImplicitExit(false);
             window.hide();
-            System.out.println(quizletURL);
+            noti = new Notification(quizletURL);
+            noti.displayFactTray("'ello!");
         });
 
-        pane.getChildren().addAll(hb);
+        pane.getChildren().addAll(c);
         window.setScene(scene);
         window.show();
     }
