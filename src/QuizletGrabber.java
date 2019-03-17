@@ -28,15 +28,12 @@ public class QuizletGrabber {
                 }
             }
             in.close();
-            for (int i = 0; i < site.size(); i++) {
-                System.out.println(site.get(i));
-            }
         } catch (Exception ex) {
             System.out.println(ex);
         }
     }
 
     public Term returnRandom() {
-        return site.get((int) Math.random() * site.size());
+        return site.get((int) (Math.random() * site.size()));
     }
 }

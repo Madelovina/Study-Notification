@@ -45,6 +45,8 @@ public class Main extends Application {
             window.hide();
             noti = new Notification(quizletURL);
             QuizletGrabber quizlet = new QuizletGrabber(quizletURL);
+            noti.setQuizlet(quizlet);
+            noti.startRandomNotify(10);
         });
 
         pane.getChildren().addAll(c);
