@@ -44,7 +44,7 @@ public class Notification {
                 playSound();
                 displayFactTray(ph.getTerm(), ph.getDef());
                 try {
-                    Thread.sleep((int) (60 * 1000 * Math.random()));
+                    Thread.sleep((int) (180 * 1000 * Math.random()));
                 } catch (Exception ex) {
                     System.out.println(ex);
                 }
