@@ -8,8 +8,14 @@ public class Notification {
     private SystemTray tray;
     private TrayIcon trayIcon;
     private QuizletGrabber quizlet;
+    private int min;
+    private int max;
+    private int notiS;
 
-    public Notification(String url) {
+    public Notification(String url, int m, int a, int s) {
+        min = m;
+        max = a;
+        notiS = s;
         try {
             tray = SystemTray.getSystemTray();
             trayIcon = new TrayIcon(image, "Tray Demo");
@@ -44,7 +50,7 @@ public class Notification {
                 playSound();
                 displayFactTray(ph.getTerm(), ph.getDef());
                 try {
-                    Thread.sleep((int) (180 * 1000 * Math.random()));
+                    Thread.sleep((int) (60000 * (min + (max - min) * Math.random())));
                 } catch (Exception ex) {
                     System.out.println(ex);
                 }
@@ -56,9 +62,12 @@ public class Notification {
     }
 
     private void playSound() {
-        AudioClip notification =
-                new AudioClip(this.getClass().getResource("resources/notification" + ((int) (Math.random() * 4) + 1) +
-                        ".mp3").toString());
-        notification.play();
+        if (notiS == 5) {
+            AudioClip notification = new AudioClip(this.getClass().getResource("resources/notification" + ((int) (Math.random() * 4) + 1) + ".mp3").toString());
+            notification.play();
+        } else {
+            AudioClip notification = new AudioClip(this.getClass().getResource("resources/notification" + notiS + ".mp3").toString());
+            notification.play();
+        }
     }
 }
