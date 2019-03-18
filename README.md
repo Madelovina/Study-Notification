@@ -3,6 +3,9 @@ Study Notification is a program made by for other students to help them study. A
 minimum and maximum timeout for notifications, and setting the notification sound, notifications will appear 
 within the given interval that you set with a term/definition pairing from the Quizlet. 
 
+## Requirements
+* Java
+
 ## Installation
 
 ```bash
