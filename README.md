@@ -1,7 +1,7 @@
 # Study-Notification
 Study Notification is a program made by for other students to help them study. After loading in a Quizlet, setting a 
 minimum and maximum timeout for notifications, and setting the notification sound, notifications will appear 
-within the given interval that you said with a term/definition pairing from the Quizlet. 
+within the given interval that you set with a term/definition pairing from the Quizlet. 
 
 ## Installation
 
