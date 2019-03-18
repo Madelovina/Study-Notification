@@ -7,9 +7,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -25,6 +24,7 @@ public class Main extends Application {
     static String quizletURL;
     static Notification noti;
     private static HashMap<String, Integer> hm = new HashMap<>();
+    private Image bgImg = new Image(this.getClass().getResource("resources/background.png").toString());
 
     public static void main(String[] args) {
         hm.put("Discord", 1);
@@ -43,6 +43,9 @@ public class Main extends Application {
         window.setWidth(395);
         window.setHeight(80);
         final Pane pane = new Pane();
+        pane.setBackground(new Background(new BackgroundImage(bgImg, BackgroundRepeat.REPEAT,
+                BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
+                BackgroundSize.DEFAULT)));
         Scene scene = new Scene(pane);
         HBox c = new HBox();
         c.setPadding(new Insets(10, 10, 10, 10));
