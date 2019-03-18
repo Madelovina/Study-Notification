@@ -1,10 +1,11 @@
 import javafx.scene.media.AudioClip;
 
+import javax.swing.*;
 import java.awt.*;
 
 public class Notification {
 
-    private final Image image = Toolkit.getDefaultToolkit().getImage("assets\\quizlet.png");
+    private final Image image = new ImageIcon(this.getClass().getResource("resources/quizlet.png")).getImage();
     private SystemTray tray;
     private TrayIcon trayIcon;
     private QuizletGrabber quizlet;

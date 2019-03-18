@@ -15,6 +15,9 @@ import javafx.stage.StageStyle;
 
 import java.util.HashMap;
 
+
+// jar cfve client.jar Main Main.class MyClient.class Combo.class
+
 // https://stackoverflow.com/questions/21753252/why-trayicon-doesnt-appear
 
 public class Main extends Application {
