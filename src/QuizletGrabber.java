@@ -6,9 +6,8 @@ import java.util.ArrayList;
 public class QuizletGrabber {
 
     private ArrayList<Term> site = new ArrayList<>();
-    final private String TERM_TEXT = "<div class=\"SetPageTerm-wordText\"><span class=\"TermText notranslate lang-en\">";
-    final private String DEF_TEXT = "<div class=\"SetPageTerm-definitionText\"><span class=\"TermText notranslate " +
-            "lang-en\">";
+    final private String TERM_TEXT = "SetPageTerm-wordText\"><span class=\"TermText notranslate lang-en\">";
+    final private String DEF_TEXT = "SetPageTerm-definitionText\"><span class=\"TermText notranslate lang-en\">";
 
     public QuizletGrabber(String quiz) {
         try {
@@ -19,7 +18,8 @@ public class QuizletGrabber {
                 if (inputLine.contains(TERM_TEXT)) {
                     String[] ph = inputLine.split(TERM_TEXT);
                     for (int i = 1; i < ph.length; i++) {
-                        site.add(new Term(ph[i].substring(0, ph[i].indexOf("</span>"))));
+                        Term phTerm = new Term(ph[i].substring(0, ph[i].indexOf("</span>")));
+                        site.add(phTerm);
                     }
                     String[] ph2 = inputLine.split(DEF_TEXT);
                     for (int i = 1; i < ph2.length; i++) {
